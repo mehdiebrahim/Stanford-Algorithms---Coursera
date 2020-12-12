@@ -23,12 +23,3 @@ final = 0
 for elem in diff:
     count += elem[2]
     final += count*elem[1]
-
-print(final)
-count = 0
-final = 0
-for elem in ratio:
-    count += elem[2]
-    final += count*elem[1]
-
-print(final)
