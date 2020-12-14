@@ -1,12 +1,6 @@
-a = [0,1,1,1,1,0,0,1,0,1,1,1,0,0,0,1,1,1,1,0,0,1,0,1]
-l = []
-count = 0
-# b= a.copy()
+
 import os
 from collections import defaultdict
-
-a = '0 1 1 0 0 0 0 0 1 1 0 1 0 0 1 1 1 1 0 0 1 1 1 1'
-
 
 def hamdist2(x):
     x2 = x.split()
@@ -22,13 +16,9 @@ def hamdist2(x):
             one_j = 1^int(b[j])
             zero_j = 0^int(b[j])
 
-
             if one_i == 1:
                 b[i] = '1'
-
-# #             elif zero_i==1:
             else:
-#                 print(b[i],'bi')
                 b[i] = '0'
 
             if one_j == 1:
@@ -38,7 +28,6 @@ def hamdist2(x):
                 b[j] = '0'
             L.append(' '.join(b))
     return L
-# print(hamdist2(a))
 
 def hamdist1(x):
     x2 = x.split()
@@ -94,7 +83,7 @@ def find_cluster(clusters,point):
             return cluster
         
     return None
-# hamdist1('0 1 1 0 0 0 0 0 1 1 0 1 0 0 1 1 1 1 0 0 1 1 1 1')
+
 os.chdir('/Users/mehdiebrahim/Desktop/Stanford Algorithms - Data')
 d = 'cluster2.txt'
 
@@ -109,7 +98,6 @@ with open(d, 'r') as infile:
         if len(line.split())==2:
             no_of_nodes,no_of_bits = int(line[0]),int(line[1])
         else:
-#            line = list(map(lambda x: int(x),line))
             nodes[line].append(line)
 
 list_of_codes = [code for code in nodes]
@@ -120,7 +108,7 @@ while list_of_codes:
     code = list_of_codes.pop(0)
     initial = nodes[code]
     neighbours = hamdist1(code) + hamdist2(code)
-#     print(len(hamdist1(code)),len(hamdist2(code)))
+    
     cluster = set(nodes[code])
     counts = []
     for neighbour in neighbours:
