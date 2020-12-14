@@ -15,12 +15,6 @@ twosat4 = '2sat4.txt'
 twosat5 = '2sat5.txt'
 twosat6 = '2sat6.txt'
 
-x1 = 1
-x2 = 2
-x3 = 3
-
-l = [(-x1,x2),(-x2,x3),(x1,-x3),(x3,x2)]
-# d = defaultdict(list)
 d = []
 
 
@@ -74,7 +68,7 @@ def fileopen(file):
 
             else:
                 edges_list,adj_list = edges(int(line[0]),int(line[1]),edges_list,adj_list)
-#     print(len(edges_list),)            
+          
     for u,v in edges_list: 
         if u not in V:
             V[u] = count
@@ -87,13 +81,13 @@ def fileopen(file):
 
     
     for ind in range(len(edges_list)):
-#         print(ind,'ind')
+
         u,v = edges_list[ind][0],edges_list[ind][1]
-#         print(u,v)
+
         edges_list[ind] = [V[u],V[v]]
         vs2.append(V[u])
         vs2.append(V[v])
-#     print(len(set(vs2)),min(vs2),'vs2')
+
     return edges_list,len(V),V,V2
 
 
@@ -244,7 +238,7 @@ def find2satSoln(twosatproblem,V,minnode):
     print(abs(end-start),'time taken')
     return g.leaders
 
-def problemss(problems):
+def problems_all(problems):
     out = dict()
     for problem in problems:
         # print(problem)
@@ -264,6 +258,6 @@ def problemss(problems):
         if problem not in out:
             out[problem] = 1
     return out
-print(problemss(problems))
+print(problems_all(problems))
         
 
